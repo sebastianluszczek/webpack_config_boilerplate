@@ -53,6 +53,12 @@ module.exports = {
                         publicPath: 'img/'
                     }
                 }]
+            }, {
+                test: /\.ico$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]'
+                }
             },
             {
                 test: /\.(ttf|eot|woff|woff2|otf)$/,
@@ -70,7 +76,8 @@ module.exports = {
         extractPlugin,
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: 'src/index.html'
+            template: 'src/index.html',
+            favicon: 'src/favicon.ico'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
